@@ -1,0 +1,23 @@
+import random
+
+print ('''
+        ------------------
+            QuickSort
+        ------------------''')
+
+My_Data = random.sample(range(1, 101), 20)
+print(f"Sebelum Disorting: {My_Data}")
+
+def quickSort(My_Data):
+    if len(My_Data) <= 1:
+        return My_Data
+    else:
+        pivot = My_Data[0]
+
+        left = [x for x in My_Data[1:] if x <= pivot] 
+        right = [x for x in My_Data[1:] if x >= pivot]
+        
+        return quickSort(left) + [pivot] + quickSort(right)
+
+result = quickSort(My_Data)
+print(f"Setelah Disorting: {result}")
