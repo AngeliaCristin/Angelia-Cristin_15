@@ -1,0 +1,28 @@
+import random
+
+# menghasilkan urutan angka acak dari 1 hingga 100
+My_Data = random.sample(range(1, 101), 20)
+
+print ('''
+        ------------------
+             ShellSort
+        ------------------''')
+        
+print ('\nSebelum Disorting :') 
+print(My_Data)
+
+def shellsort(array, n):
+    interval = n // 2
+    while interval > 0:        
+        for i in range(interval,n):
+            temp = array[i]                   
+            while i >= interval and array[i - interval] > temp:                
+                array[i] = array[i - interval]                
+                i -= interval
+            array[i] = temp
+        interval //= 2
+
+size = len(My_Data)
+shellsort(My_Data, size)
+print('\nSetelah Disorting : ')
+print(My_Data,'\n')
