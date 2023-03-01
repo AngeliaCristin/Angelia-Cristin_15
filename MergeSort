@@ -1,0 +1,48 @@
+import random
+
+# menghasilkan urutan angka acak dari 1 hingga 100
+My_Data = random.sample(range(1, 101), 20)
+
+print ('''
+        ------------------
+            MergeSort
+        ------------------''')
+
+print(f'sebelum Disorting : {My_Data}')
+def merge_sort (My_Data):
+    if len(My_Data) > 1:
+        mid = len(My_Data) // 2
+        left_arr = My_Data[:mid]
+        right_arr = My_Data [mid:]
+
+        merge_sort(left_arr)
+        merge_sort(right_arr)
+        i = j = k = 0
+        
+        # My_Data kiri dan My_Data kanan masih ada
+        while i < len(left_arr) and j < len(right_arr):
+            if left_arr[i] < right_arr[j]:
+                My_Data[k] = left_arr[i]
+                i += 1
+                # k += 1
+            else:
+                My_Data[k] = right_arr[j]
+                j += 1
+                # k += 1
+            k += 1
+
+        # My_Data kiri masih ada namun My_Data kanan sudah habis
+        while (i < len(left_arr)):
+            My_Data[k] = left_arr[i]
+            i += 1
+            k += 1
+        
+        # My_Data kanan masih ada namun My_Data kiri sudah habis
+        while (j < len(right_arr)):
+            My_Data[k] = right_arr[j]
+            j += 1
+            k += 1
+
+
+merge_sort (My_Data)
+print(f'Setelah Disorting: {My_Data}')
