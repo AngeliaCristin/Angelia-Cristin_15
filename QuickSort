@@ -5,8 +5,11 @@ print ('''
             QuickSort
         ------------------''')
 
-My_Data = random.sample(range(1, 101), 20)
+# menghasilkan urutan angka acak dari 1 hingga 50
+My_Data = random.sample(range(1, 50), 10)
+print ('-----------------------------------------------------------')
 print(f"Sebelum Disorting: {My_Data}")
+print ('-----------------------------------------------------------')
 
 def quickSort(My_Data):
     if len(My_Data) <= 1:
@@ -20,4 +23,6 @@ def quickSort(My_Data):
         return quickSort(left) + [pivot] + quickSort(right)
 
 result = quickSort(My_Data)
+print ('-----------------------------------------------------------')
 print(f"Setelah Disorting: {result}")
+print ('-----------------------------------------------------------')
