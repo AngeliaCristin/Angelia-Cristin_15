@@ -1,25 +1,24 @@
 import random
 
-# menghasilkan urutan angka acak dari 1 hingga 100
-My_Data = random.sample(range(1, 101), 20)
-
 print ('''
         ------------------
              ShellSort
         ------------------''')
-        
+
+# menghasilkan urutan angka acak dari 1 hingga 50 sebanyak n=10
+My_Data = random.sample(range(1, 50), 10)        
 print ('\nSebelum Disorting :') 
 print(My_Data)
 
-def shellsort(array, n):
+def shellsort(array_shell, n):
     interval = n // 2
     while interval > 0:        
         for i in range(interval,n):
-            temp = array[i]                   
-            while i >= interval and array[i - interval] > temp:                
-                array[i] = array[i - interval]                
+            temp = array_shell[i]                   
+            while i >= interval and array_shell[i - interval] > temp:                
+                array_shell[i] = array_shell[i - interval]                
                 i -= interval
-            array[i] = temp
+            array_shell[i] = temp
         interval //= 2
 
 size = len(My_Data)
